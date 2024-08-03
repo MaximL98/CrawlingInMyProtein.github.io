@@ -1,0 +1,250 @@
+<head>
+    <title>MyProtein Crawler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <div class="backgroundImageDiv"></div>
+    <nav class="navbar">
+        <div class="navbar_div"><a href="index.html">Home</a></div>
+        <div class="navbar_div"><a href="Maxim.html">Maxim Lebedinsky</a></div>
+        <div class="navbar_div"><a href="Liel.html">Liel Pasman</a></div>
+        <div class="navbar_div"><a href="Dima.html">Dima Kislitsyn</a></div>
+        <div class="navbar_div_chosen">Project: My Protein data retrieval</div>
+    </nav>
+    <div class="middlebox_MP">
+        <h1 style="padding: 10px;"> Crawling in My Protein: by Crawling In My
+            Skin™</h1>
+        <p> This is the page for the My Protein data retrieval project. The data
+            is extracted entirely using Beautiful Soup, a Python framework for
+            web scraping. The data is then converted into JSON files and
+            displayed on this page. We have managed to retrieve various
+            products, their price, ingredient description, calculate their
+            authority and hub scores
+            and the page ranks as well. Below you can see the results of our
+            retrieval efforts.
+        </p>
+        <div class="retrievalSectionDiv">
+            <h1> Part 1: Building the crawler.</h2>
+            <h2> Query by ingredient</h3>
+            <p> The first part of the project was to build a web crawler that
+                would traverse the MyProtein "Protein" section and extract
+                relevant information.
+                This was done by going to
+                https://www.myprotein.co.il/nutrition/protein.list and
+                extracting 30 product anchors (a) for the link
+                to the each product page. Every item has a description, name,
+                price, ingredient list, etc.. We wanted to create a crawler
+                which
+                will return items based on an ingredient we would like it to
+                have.</p>
+            <p> For example, if we would give the crawler the query
+                "I want a product with milk sugar no whey no lecithin and papaya",
+                it will be
+                broken down to [milk, !whey, !lecithin] by using the function
+                "filter_query()" which filters out the query based on the word
+                our crawler recognizes (All of the words from the inverted index
+                we have built by scraping the 30 items in that page).
+            </p>
+            <img src="/Example_images/Query_filtration.png"
+                alt="Query_filtration" class="Query_filtration"
+                style=" width: 70vw">
+            <p> The crawler will then go through the 30 items and check if the
+                item has all the ingredients we want it to have. If it does, it
+                will be added to the list of items that will be returned to the
+                user. </p>
+            <div class="ingredientButtonDiv">
+                <button class="ingredientButton" onclick="milkClick()"
+                    id="Milk">Milk</button>
+                <button class="ingredientButton" onclick="lecithinClick()"
+                    id="Lecithin">Lecithin</button>
+                <button class="ingredientButton" onclick="soyClick()"
+                    id="Soy">Soy</button>
+                <button class="ingredientButton" onclick="acidClick()"
+                    id="Acid">Acid</button>
+                <button class="ingredientButton" onclick="sunflowerClick()"
+                    id="Sunflower">Sunflower</button>
+                <button class="ingredientButton" onclick="vitaminClick()"
+                    id="Vitamin">Vitamin</button>
+                <button class="ingredientButton" onclick="oilClick()"
+                    id="Oil">Oil</button>
+
+            </div>
+            <div class="productsDiv" id="productsDiv">
+
+            </div>
+
+            <h2>Query by price range:</h2>
+            <p>The original website allows filtering of the products only by
+                pre-defined prices.</p>
+            <div class="imageDiv">
+                <img src="/Example_images/filter_by_price.jpg.png"
+                    style="width: 20vw">
+            </div>
+            <p>Our crawler allows the user to filter the products by a price
+                range of their choice. The items are taken from two main pages:
+                "Protein" and "Accessories". Test it in the block below.</p>
+            <div class="wrapper">
+                <div class="values">
+                    <span id="range1">
+                        0
+                    </span>
+                    <span>&dash;</span>
+                    <span id="range2">
+                        100
+                    </span> &ThinSpace;NIS
+                </div>
+                <div class="sliderDiv">
+                    <div class="container">
+                        <div class="slider-track"></div>
+                        <input type="range" min="0" max="500" value="0"
+                            id="slider-1" oninput="slideOne()">
+                        <input type="range" min="0" max="500" value="70"
+                            id="slider-2" oninput="slideTwo()">
+                    </div>
+                    <button class="ingredientButton"
+                        onclick="filterProductsByPrice()">Filter</button>
+                </div>
+            </div>
+            <div class="productsDiv" id="productsDivPrice">
+            </div>
+            <h2>Query by accessory type:</h1>
+            <p> In this section, we wanted to perform a query search which
+                includes the retrieval of gym
+                accessories. The page links is
+                https://www.myprotein.co.il/clothing/soft-accessories.list
+                and the aim was to
+                retrieve items labeled as "Hard accessories". Hard
+                accessories are bottles, boxing gear, straps and more. Soft
+                accessories are bags,
+                socks, sport bras and more. Our goal was to filter out the
+                hard accessories from the soft ones by that category.</p>
+            <div class="ingredientButtonDiv">
+                <button class="ingredientButton" id="HardAccessoriesButton"
+                    onclick="hardAccessoriesClick()">Hard
+                    Accessories</button>
+                <button class="ingredientButton" id="SoftAccessoriesButton"
+                    onclick="softAccessoriesClick()">Soft
+                    Accessories</button>
+
+            </div>
+
+            <div class="productsDiv" id="productsDivAccessories">
+
+            </div>
+            <div style="margin-bottom: 50px;">
+
+                <p>
+                    We managed to put all of the items in this page by
+                    retrieving the data from MP and storing the items data
+                    in
+                    two JSON files, which are linked here:
+                    <a href="/json_files/products_from_acc_list.json"
+                        download="Accessories_JSON">Accesories_JSON</a>
+                    <a href="/json_files/products_from_protein_list.json"
+                        download="Protein_Products_JSON">Protein_Products_JSON</a>
+                </p>
+            </div>
+            <h1> Part 2: Calculating TF-IDF and returning relevant pages</h2>
+            <p>As we already mentioned, the data retrieval process was done
+                entirely by using Beautiful Soup. For ease of use, we did it in
+                google colab. The link to the colab file can be found below:</p>
+            <a
+                href="https://colab.research.google.com/drive/1yqArFeSeDVwN0JxcNIhm6J95wcrL9RHj#scrollTo=UeJV7gRjmWPU">Google
+                Colab</a>
+
+            <h2>Let's dive into the code!</h2>
+            <p>This code goes into every protein product page and extracts the
+                ingredients.</p>
+            <img src="/Example_images/Retrieving_Protein_Products.png"
+                alt="Retrieving_Protein_Products"
+                class="Retrieving_Protein_Products" style=" width: 80vw;">
+            <p>After that, we define two functions, preprocess_text Removes stop
+                words, deletes punctuations such as dots, and commas, tokenizes
+                words, and converts words into their basic form.
+                create_inverted_index() creates an inverted index from a long
+                string of words. This inverted index is then used to create the
+                queries a user can make.</p>
+            <img src="/Example_images/Preprocessing_and_invertedIndex.png"
+                alt="Preprocessing_and_invertedIndex"
+                class="Preprocessing_and_invertedIndex" style=" width: 80vw;">
+            <p>Now, we find the 15 most common words from all item ingredients
+                by first taking all of the ingredient strings, preprocessing
+                them, and then inserting them into one big string to create an
+                inverted index from them. We then get the 15 top words from the
+                inverted index.</p>
+            <img src="/Example_images/find_top_15_words.png"
+                alt="find_top_15_words" class="find_top_15_words"
+                style=" width: 80vw;">
+            <p></p>
+            <img src="/Example_images/found_top_15_words.png"
+                alt="found_top_15_words" class="found_top_15_words"
+                style=" width: 80vw;">
+            <p>The inverted Index:</p>
+            <img src="/Example_images/Inverted_Index.png" alt="inverted_index"
+                class="inverted_index" style=" width: 80vw;">
+            <p>We then use inverted index to calculate tf_idf with the following
+                functions.</p>
+            <img src="/Example_images/tf.png" alt="Query_filtration"
+                class="Query_filtration" style=" width: 50vw;">
+            <img src="/Example_images/idf.png" alt="Query_filtration"
+                class="Query_filtration" style=" width: 50vw;">
+            <img src="/Example_images/tf_idf.png" alt="Query_filtration"
+                class="Query_filtration" style=" width: 50vw;">
+            <p>The following text is the result of the TF_IDF calculations:
+                'vitamin': 1.66015273117091, 'protein': 0.1301845467101477,
+                'milk': 0.4879228193870323, 'acid': 1.1870448277518928,
+                'powder': 0.5336478845679888, 'flavouring': 0.21008467286988267,
+                'whey': 0.6244458112713444, 'sweetener': 0.199419071947844,
+                'sucralose': 0.199419071947844, 'ingredient': 0.0, 'lecithin':
+                0.9798866806379186, 'isolate': 0.6637654004650809, 'oil':
+                0.9675369173943055, 'sunflower': 0.7109509202358797, 'soy':
+                0.9450106896028247
+            </p>
+            <p>Next, we define a function which finds the top most relevant
+                documents based on the inverted index.</p>
+            <img src="Example_images/top_10_documents.png"
+                alt="top_10_documents" class="top_10_documents"
+                style="min-height: 400px;height: auto;    width: 80vw;">
+            <p>Finally, we create two example queries. These queries go through
+                filtration to extract the relevant words to fit our dictionary.
+            </p>
+            <img src="Example_images/2_query_top_documents.png"
+                alt="2_query_top_documents" class="2_query_top_documents"
+                style="min-height: 400px;height: auto;    width: 80vw;">
+
+            <p></p>
+            <h1> Part 3: Authority scores, Hub scores, and Page Ranks</hh2>
+            <h2>Authority & Hub</h2>
+            <p>Below is a Node class we created, each node will be used to
+                construct a graph of connections,
+                to calculate the scores. Each protein product has a recommended
+                div with 4 links to other recommended protein products.
+                We set the recommended products as pages the current product
+                points to.</p>
+            <p>Node class:</p>
+            <img src="Example_images/Node_class.png" alt="Node_class"
+                class="Node_class"
+                style="min-height: 400px;  width: 60vw;">
+                <p>Recommended products:</p>
+            <img src="/Example_images/recommended_products.png" alt="Node_class"
+                class="Node_class" style="min-height: 400px;  width: 60vw;">
+            
+            <p>Now, without going into the complicated graph calculation and creation, each node holds the nodes that we connect to, and nodes that are connected to it.</p>
+            <img src="/Example_images/node_graph.png" alt="Node_class"
+                class="Node_class" style="min-height: 400px;  width: 70vw;">
+            <p>And the authority and hub scores are as follows:</p>
+            <img src="/Example_images/hub_authority.png" alt="Node_class"
+                class="Node_class" style="min-height: 400px;  width: 50vw;">
+            
+
+            
+            <h1>Part 4: Time complexity</h1>
+            <h2>Sub header</h2>
+            <p>Example</p>
+            <img src="/Example_images/idf.png" alt="Node_class"
+                class="Node_class" style="width: 70vw;">
+            <script src="MP_Retrieval.js"></script>
+            <script src="slider.js"></script>
+
+        </body>

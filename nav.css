@@ -3,27 +3,30 @@
     height: 50px;
     width: 100%;
     position: fixed;
-    
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.849);
+    background-color: rgba(0, 0, 0, 0.925);
     border-width: 20px;
-    border-bottom: 3px solid #ad82c07c;
+    border-bottom: 3px solid #0f47fd;
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 5;
 }
 
 .navbar_div {
     text-decoration: none;
+    background-color: #6d3785;
     color: #ffffff;
     font-size: 1.2rem;
     font: bold;
     font-family: 'Arial', sans-serif;
-    border-radius: 5px;
     height: 100%;
     display: flex;
     align-items: center;
     margin-right: 5px;
+    padding-top: 7px;
+    margin-bottom: 7px;
+
 }
 
 .navbar_div:hover{
@@ -37,18 +40,17 @@
 
 .navbar_div_chosen {
     text-decoration: none;
-    color: #000000;
+    color: white;
     font-size: 1.2rem;
     font: bold;
     font-family: 'Arial', sans-serif;
     height: 100%;
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #0f47fd;
     padding-left: 5px;
     padding-right: 5px;
     margin-right: 5px;
-
 }
 
 .navbar_div a {
