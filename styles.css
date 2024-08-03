@@ -80,6 +80,14 @@ h4 {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.middlebox p {
+    width: 100%;
+}
+
+.middlebox_students p {
+    width: 100%;
+}
+
 .middlebox_students img {
     max-width: 250px;
     max-height: 250px;
