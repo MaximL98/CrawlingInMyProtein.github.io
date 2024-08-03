@@ -1,19 +1,66 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 0px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(149, 59, 190);
+    border-radius: 0px;
+  }
+
 body {
-    min-height: 100vh;
-    background: url("image.jpg") no-repeat;
+    background-image: url("image.jpg");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
     align-items: center;
     justify-content: center;
     display: flex;
-    
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    margin: 10px;
+    width: 80vw;
+
+}
+
+h4 {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.backgroundImageDiv {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+
+    opacity: 100%;
+    filter: brightness(85%);
+
+    pointer-events: none;
+    z-index: -100;
 }
 
 .middlebox {
@@ -21,16 +68,70 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 400px;
-    width: 400px;
+    height: 450px;
+    width: 450px;
     padding: 20px;
     border-radius: 10px;
     border: 2px solid rgb(15, 15, 15);
     outline: 2px solid rgb(223, 223, 223);
     background-color: rgba(0, 0, 0, 0.712);
     color: white;
-    font-size: 1.2rem;
+    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.middlebox_students img {
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.middlebox_MP {
+    top: 70px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    width: 90%;
+    border-radius: 10px;
+    border: 2px solid rgb(15, 15, 15);
+    outline: 2px solid rgb(223, 223, 223);
+    background-color: rgba(0, 0, 0, 0.952);
+    color: white;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.middlebox_MP h1 {
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 80vw;
+}
+
+.middlebox_MP h2 {
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+}
+
+.retrievalSectionDiv {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .middlebox h1 {
@@ -45,8 +146,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 500px;
-    width: 500px;
+    height: 600px;
+    width: 550px;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
@@ -75,7 +176,298 @@ body {
 
 }
 
-img{
-    max-width:200px;
-    max-height:200px;
+
+
+.imageDiv {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 20px;
+    width: 80vw;
+}
+
+.imageDiv img {
+    border: 2px solid rgb(15, 15, 15);
+    outline: 2px solid rgb(223, 223, 223);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.712);
+
+    width: 70vw;
+}
+
+
+
+
+.productsDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    grid-column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    height: 500px;
+    width: 80vw;
+    padding: 20px;
+    margin: 20px;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid rgb(15, 15, 15);
+    background-color: rgba(31, 31, 31, 0.712);
+    outline: 2px solid rgb(223, 223, 223);
+    overflow-y: scroll;
+}
+
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 300px;
+    width: 250px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px solid rgb(15, 15, 15);
+    outline: 2px solid rgb(223, 223, 223);
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 3px 3px 10px 1px rgb(0, 0, 0);
+}
+
+.ingredientButtonDiv {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    padding: 10px;
+}
+
+.ingredientButton {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.712);
+    margin-right: 20px;
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    border: 2px solid rgb(15, 15, 15);
+}
+
+.ingredientButton:hover {
+    background-color: rgba(0, 0, 0, 0.912);
+    color: white;
+    cursor: pointer;
+}
+
+.ingredientButton:active {
+    background-color: rgba(168, 13, 13, 0.914);
+    color: white;
+}
+
+.inputBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    height: 20px;
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(15, 15, 15);
+    outline: 2px solid rgb(223, 223, 223);
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.priceFilterDiv {
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+
+}
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    border:rgb(15, 15, 15);
+    padding: 50px 40px 20px 40px;
+    border-radius: 10px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.slider-track {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-moz-range-track {
+    -moz-appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-ms-track {
+    appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    background-color: #0f47fd;
+    cursor: pointer;
+    margin-top: -9px;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #0f47fd;
+    pointer-events: auto;
+    border: none;
+}
+
+input[type="range"]::-ms-thumb {
+    appearance: none;
+    height: 1.7em;
+    width: 1.7em;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #3264fe;
+    pointer-events: auto;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: #ffffff;
+    border: 1px solid #3264fe;
+}
+
+.values {
+    background-color: #0f47fd;
+    width: 40%;
+    position: relative;
+    margin: auto;
+    padding: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.values:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-top: 15px solid #0f47fd;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    margin: auto;
+    bottom: -14px;
+    left: 0;
+    right: 0;
+}
+
+.sliderDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.productImage {
+    max-height: 170px;
+}
+
+.productPrice {
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.productName {
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.imageDivTFIDF {
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    flex-direction: row;
+    grid-template-columns: repeat(auto-fit, 500px);
+    margin: 20px;
+}
+
+.productDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    overflow-inline: scroll;
+    grid-column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+
 }
