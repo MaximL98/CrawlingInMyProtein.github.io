@@ -250,11 +250,48 @@
             
             <p></p>
             <h1>Part 5: Feedback relevance</h1>
-            <h1>Part 6: Time complexity</h1>
-            <h2>Sub header</h2>
-            <p>Example</p>
-            <img src="/Example_images/idf.png" alt="Node_class"
-                class="Node_class" style="width: 70vw;">
+            <p>TODO</p>
+            <h1>Part 6: Used Technologies</h1>
+            <p> 
+                For the project, Python was selected as the primary programming language due to its extensive ecosystem of libraries, facilitating efficient development. To reduce computational constraints and enhance code organization and collaboration, Google Colaboratory was utilized as the development environment.
+                Web scraping was performed using the BeautifulSoup4 library. Data extracted from the MyProtein website was stored in JSON format for subsequent integration into the project website. JSON's structure and readability make it suitable for data management and retrieval.
+            </p>
+            <div class = icon-container>
+                <img src="Example_images/Python-programming-logo-on-transparent-background-PNG-removebg-preview.png" alt="Node_class"
+                    class="Node_class" style="min-height: 40px;  width: 5vw;">
+                <img src="Example_images/png-transparent-google-colab-logo-tech-companies-removebg-preview.png" alt="Node_class"
+                    class="Node_class" style="min-height: 40px;  width: 6vw;">
+                <img src="Example_images/1_Un8rhfHOScPqfdC3FAAU7w-removebg-preview.png" alt="Node_class"
+                    class="Node_class" style="min-height: 40px;  width: 7vw;">
+                <img src="Example_images\JSON_vector_logo.svg.png" alt="Node_class"
+                class="Node_class" style="min-height: 40px;  width: 5vw;">
+            </div>
+            <h1>Part 7: Time complexity</h1>
+            <h2>Theme 1: Ingredient Retrieval</h2>
+            <p>
+                • Product Link Extraction: 1.5269 seconds <br>
+                • Ingredient Data Retrieval: 32.7 seconds (total for 30 products) <br>
+            </p>
+            <h2>Theme 2: Product Categorization</h2>
+            <p>
+                • Product Link Extraction: 4.45 seconds <br>
+                • Product Detail Extraction: 77 seconds (total for approximately 150 products) <br>
+            </p>
+            <h2>Theme 3: Price Extraction</h2>
+            <p>
+                • Price Data Extraction: 5.717 seconds <br>
+            </p>
+            <h2>Dependent On</h2>
+            <p>
+                Execution time is primarily influenced by the quantity of products accessed during data retrieval. For instance, a topic with a smaller product count exhibits significantly faster processing times compared to one with a larger product count. 
+                A second critical factor influencing data extraction efficiency is the depth of the target data within the website's HTML structure. Data residing in prominent elements such as &lt;h1&gt; headings are typically readily accessible. Contrarily, data encapsulated within nested &lt;div&gt; elements pose a greater degree of complexity in the extraction process.                
+            </p>
+            <h2>Possible Improvements</h2>
+            <p>
+                Execution time can be reduced through the implementation of parallel processing techniques. This involves utilizing multiple threads concurrently on multiple processors or employing more computationally powerful hardware.
+                Or identifying the optimal data extraction strategy to minimize the volume of processed elements.
+            </p>
+            
             <script src="MP_Retrieval.js"></script>
             <script src="slider.js"></script>
 
