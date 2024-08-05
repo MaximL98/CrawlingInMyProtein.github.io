@@ -479,3 +479,9 @@ input[type="range"]:active::-webkit-slider-thumb {
     width: 80vw;
 
 }
+
+.icon-container {
+    display: flex; /* Essential for horizontal layout */
+    justify-content: space-between; /* Adjust spacing between images */
+}
+  
