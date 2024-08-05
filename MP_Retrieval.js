@@ -68,7 +68,7 @@ function updateDivAccessories(productsDivAccessories, softAccessories) {
 }
 
 
-fetch('/json_files/products_from_protein_list.json') // Replace with your file path
+fetch('json_files/products_from_protein_list.json') // Replace with your file path
   .then(response => response.json()) // Parse the JSON response
   .then(data => {
     currentProductsList = data;
@@ -76,7 +76,7 @@ fetch('/json_files/products_from_protein_list.json') // Replace with your file p
   })
   .catch(error => console.error(error)); // Handle errors
 
-fetch('/json_files/products_from_acc_list.json') // Replace with the path to your second JSON file
+fetch('json_files/products_from_acc_list.json') // Replace with the path to your second JSON file
     .then(response => response.json()) // Parse the JSON response
     .then(data => {
         currentProductsList = [...data, ...currentProductsList];
