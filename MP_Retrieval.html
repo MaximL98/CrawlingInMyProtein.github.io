@@ -199,7 +199,7 @@
                 queries a user can make.</p>
             <img src="Example_images/Preprocessing_and_invertedIndex.png"
                 alt="Preprocessing_and_invertedIndex"
-                class="Preprocessing_and_invertedIndex" style=" width: 80vw;">
+                class="Preprocessing_and_invertedIndex" style=" width: 60vw;">
             <p>Now, we find the 15 most common words from all item ingredients
                 by first taking all of the ingredient strings, preprocessing
                 them, and then inserting them into one big string to create an
@@ -211,7 +211,7 @@
             <p></p>
             <img src="Example_images/found_top_15_words.png"
                 alt="found_top_15_words" class="found_top_15_words"
-                style=" width: 80vw;">
+                style=" width: 50vw;">
             <p>The inverted Index:</p>
             <img src="Example_images/Inverted_Index.png" alt="inverted_index"
                 class="inverted_index" style=" width: 80vw;">
@@ -239,21 +239,21 @@
                 documents based on the inverted index.</p>
             <img src="Example_images/top_10_documents.png"
                 alt="top_10_documents" class="top_10_documents"
-                style="width: 80vw;">
+                style="width: 40vw;">
             <p>Finally, we create two example queries. These queries go through
                 filtration to extract the relevant words to fit our dictionary.
             </p>
             <img src="Example_images/2_query_top_documents.png"
                 alt="2_query_top_documents" class="2_query_top_documents"
-                style="width: 80vw;">
+                style="width: 55vw;">
 
             <p></p>
             <h4>
                 Precision + Recall
             </h4>
-            <img src="Example_images/Query1.png" style="width: 80vw">
+            <img src="Example_images/Query1.png" style="width: 55vw">
             <p></p>
-            <img src="Example_images/Query2.png"  style="width: 80vw">
+            <img src="Example_images/Query2.png"  style="width: 55vw">
 
             <h1> Part 3: Authority scores, and Hub scores</hh2>
             <h2>Authority & Hub</h2>
@@ -266,10 +266,10 @@
             <p>Node class:</p>
             <img src="Example_images/Node_class.png" alt="Node_class"
                 class="Node_class"
-                style="width: 70vw;">
+                style="width: 50vw;">
             <p>Recommended products:</p>
             <img src="Example_images/recommended_products.png" alt="Node_class"
-                class="Node_class" style="width: 80vw;">
+                class="Node_class" style="width: 60vw;">
 
             <p>Now, without going into the complicated graph calculation and
                 creation, each node holds the nodes that we connect to, and
@@ -278,11 +278,11 @@
                 class="Node_class" style="width: 80vw;">
             <p>And the authority and hub scores are as follows:</p>
             <img src="Example_images/hub_authority.png" alt="Node_class"
-                class="Node_class" style="width: 70vw;">
+                class="Node_class" style="width: 40vw;">
             <p>The scores are calculated by the function below:</p>
             <img src="Example_images/Hub_authority_calculation_function.png"
                 alt="Node_class"
-                class="Node_class" style="width: 70vw;">
+                class="Node_class" style="width: 40vw;">
             <h1> Part 4: Page Ranks</h2>
             <p> The page rank score is calculated by the function below:</p>
             <img src="Example_images/page_rank_function.png" alt="Node_class"
@@ -304,11 +304,34 @@
                 are suitable products to be featured on the front page for workout needs.
                 Essentially, we wanted to know if the products ranked highest by the algorithm
                 are good options for people looking to work out.</p>
+                <img src="Example_images/Return_top_10_page_ranks.png" style="width: 40vw">
+                <p>
+                    <p>PR:  0.3072475127646222</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/clear-whey-protein-powder/12081395.html</p>
+                    <p>PR:  0.27951246918333494</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/impact-whey-isolate-powder/10530911.html</p>
+                    <p>PR:  0.1777605054993788</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/impact-whey-protein-powder/10530943.html</p>
+                    <p>PR:  0.03164354967948718</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/vegan-protein-blend/11776868.html</p>
+                    <p>PR:  0.021651089075854703</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/soy-protein-isolate/10529701.html</p>
+                    <p>PR:  0.019082790464743593</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/clear-vegan-protein/12360400.html</p>
+                    <p>PR:  0.011375</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/impact-diet-whey/10530657.html</p>
+                    <p>PR:  0.010560416666666668</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/clear-vegan-protein-sample/12360405.html</p>
+                    <p>PR:  0.006416666666666667</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/impact-weight-gainer/10529988.html</p>
+                    <p>PR:  0.006416666666666667</p>
+                    <p>https://www.myprotein.co.il/sports-nutrition/soy-protein-isolate-sample/11332868.html</p>
+                <p>
                 <h4>First candidate: "Michal P." Does pilates for 2 years.</h4>
-                <img src="Example_images/Mich.png" style="width: 80vw">
+                <img src="Example_images/Mich.png" style="width: 40vw">
                 <p></p>
                 <h4>Second candidate: "Genrih A." did bodybuilding for about 3 years. </h4>
-                <img src="Example_images/Gen.png" style="width: 80vw">
+                <img src="Example_images/Gen.png" style="width: 40vw">
             
 
             <p>To improve query accuracy, we propose calculating tf-idf values for words in documents relevant to the user. These high-scoring terms can then be added to the original query.</p>
@@ -342,7 +365,7 @@
                     class="Node_class" style="width: 25vw;">
                 <img src="Example_images\JSON_vector_logo.svg.png"
                     alt="Node_class"
-                    class="Node_class" style="width: 7vw; height: 7vh">
+                    class="Node_class" style="width: 10vw">
             </div>
             <p></p>
             <h1>Part 7: Time complexity</h1>
