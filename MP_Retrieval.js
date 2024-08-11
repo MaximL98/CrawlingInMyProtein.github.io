@@ -13,7 +13,6 @@ productDiv.style.overflowY = "scroll";
 productDiv.style.height = "600px";
 var currentProductsList = [];
 var currentProductsListFood = [];
-json_file = "json_files/products_from_protein_list.json";
 var productDivPrice = document.getElementById("productsDivPrice");
 document.getElementById("Milk").setClassName = "ingredientButton:active";
 productsDivAccessories = document.getElementById("productsDivAccessories");
@@ -68,7 +67,7 @@ function updateDivAccessories(productsDivAccessories, softAccessories) {
 }
 
 
-fetch('json_files/products_from_protein_list.json') // Replace with your file path
+fetch('json_files/products_from_protein_list.json')
   .then(response => response.json()) // Parse the JSON response
   .then(data => {
     currentProductsList = data;
@@ -76,7 +75,7 @@ fetch('json_files/products_from_protein_list.json') // Replace with your file pa
   })
   .catch(error => console.error(error)); // Handle errors
 
-fetch('json_files/products_from_acc_list.json') // Replace with the path to your second JSON file
+fetch('json_files/products_from_acc_list.json')
     .then(response => response.json()) // Parse the JSON response
     .then(data => {
         currentProductsList = [...data, ...currentProductsList];

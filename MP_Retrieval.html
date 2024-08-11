@@ -24,8 +24,46 @@
             and the page ranks as well. Below you can see the results of our
             retrieval efforts.
         </p>
+        <p>MyProtein is a company website that sells sports nutrition and
+            equipment, a variety of protein powders, workout supplements,
+            athletic equipment and more. The users can use the website to
+            get access to different types of supplements, their description,
+            suggestion for usage and more relative data. Their catalogue
+            also includes gym equipment, clothes, and foods. For each item
+            they can see the price, other users review about the product
+            and suggestions on relative products. </p>
+        <h4>Queries we want</h4>
+        <p>“Sucralose”, we would like to find specific ingredients contained
+            in a product description. Each item has a description, each food
+            item has an ingredient list. From which we will pull the data.
+        </p>
+        <p>“Gym equipment”, users need to search “Gym” and by looking
+            through different related and unrelated items, to find what they
+            are looking for. Each item has item details, for example gym
+            equipment labelled as “Hard accessory”, with that we will know
+            to access the right products.</p>
+
+        <p> “Product price: 40 - 70”, there is a specific price range on the
+            website, which we would like to make more flexible. Give the user
+            the option to set the range. Each item has a price, when the
+            user specifies price or price range, sort all the items in that
+            price range and display them to the user.
+        </p>
         <div class="retrievalSectionDiv">
             <h1> Part 1: Building the crawler.</h2>
+            <p>As we already mentioned, the data retrieval process was done
+                entirely by using Beautiful Soup. For ease of use, we did it in
+                google colab. The link to the colab file can be found below:</p>
+            <a
+                href="https://colab.research.google.com/drive/1yqArFeSeDVwN0JxcNIhm6J95wcrL9RHj#scrollTo=UeJV7gRjmWPU">Google
+                Colab: Crawler.</a>
+            <a
+                href="https://colab.research.google.com/drive/1954WQ2ew7y6GjxjcivEDj3_MWctbaYxJ">Google
+                Colab: Authority, Hub, Page rank.</a>
+            <a
+                href="https://colab.research.google.com/drive/1YXGn_4YNiHQ5gXQKtLcbIrtVUHLMlCmK?usp=sharing">Google
+                Colab: Hard/Soft accessories retrieval.</a>
+
             <h2> Query by ingredient</h3>
             <p> The first part of the project was to build a web crawler that
                 would traverse the MyProtein "Protein" section and extract
@@ -146,12 +184,6 @@
                 </p>
             </div>
             <h1> Part 2: Calculating TF-IDF and returning relevant pages</h2>
-            <p>As we already mentioned, the data retrieval process was done
-                entirely by using Beautiful Soup. For ease of use, we did it in
-                google colab. The link to the colab file can be found below:</p>
-            <a
-                href="https://colab.research.google.com/drive/1yqArFeSeDVwN0JxcNIhm6J95wcrL9RHj#scrollTo=UeJV7gRjmWPU">Google
-                Colab</a>
 
             <h2>Let's dive into the code!</h2>
             <p>This code goes into every protein product page and extracts the
@@ -207,15 +239,22 @@
                 documents based on the inverted index.</p>
             <img src="Example_images/top_10_documents.png"
                 alt="top_10_documents" class="top_10_documents"
-                style="min-height: 400px;height: auto;    width: 80vw;">
+                style="width: 80vw;">
             <p>Finally, we create two example queries. These queries go through
                 filtration to extract the relevant words to fit our dictionary.
             </p>
             <img src="Example_images/2_query_top_documents.png"
                 alt="2_query_top_documents" class="2_query_top_documents"
-                style="min-height: 400px;height: auto;    width: 80vw;">
+                style="width: 80vw;">
 
             <p></p>
+            <h4>
+                Precision + Recall
+            </h4>
+            <img src="Example_images/Query1.png" style="width: 80vw">
+            <p></p>
+            <img src="Example_images/Query2.png"  style="width: 80vw">
+
             <h1> Part 3: Authority scores, and Hub scores</hh2>
             <h2>Authority & Hub</h2>
             <p>Below is a Node class we created, each node will be used to
@@ -227,58 +266,97 @@
             <p>Node class:</p>
             <img src="Example_images/Node_class.png" alt="Node_class"
                 class="Node_class"
-                style="min-height: 400px;  width: 60vw;">
-                <p>Recommended products:</p>
+                style="width: 70vw;">
+            <p>Recommended products:</p>
             <img src="Example_images/recommended_products.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 60vw;">
-            
-            <p>Now, without going into the complicated graph calculation and creation, each node holds the nodes that we connect to, and nodes that are connected to it.</p>
+                class="Node_class" style="width: 80vw;">
+
+            <p>Now, without going into the complicated graph calculation and
+                creation, each node holds the nodes that we connect to, and
+                nodes that are connected to it.</p>
             <img src="Example_images/node_graph.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 70vw;">
+                class="Node_class" style="width: 80vw;">
             <p>And the authority and hub scores are as follows:</p>
             <img src="Example_images/hub_authority.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 50vw;">
+                class="Node_class" style="width: 70vw;">
             <p>The scores are calculated by the function below:</p>
-            <img src="Example_images/Hub_authority_calculation_function.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 70vw;">
+            <img src="Example_images/Hub_authority_calculation_function.png"
+                alt="Node_class"
+                class="Node_class" style="width: 70vw;">
             <h1> Part 4: Page Ranks</h2>
             <p> The page rank score is calculated by the function below:</p>
             <img src="Example_images/page_rank_function.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 70vw;">
+                class="Node_class" style="width: 80vw;">
             <p>And the page rank scores are as follows:</p>
             <img src="Example_images/page_rank_results.png" alt="Node_class"
-                class="Node_class" style="min-height: 400px;  width: 70vw;">
-            <p>As we can see, the score of all products converges after the 40th iteration.</p>
-            
+                class="Node_class"  style="width: 80vw;">
+            <p>As we can see, the score of all products converges after the 40th
+                iteration.</p>
+
             <p></p>
             <h1>Part 5: Feedback relevance</h1>
+            <p></p>
+            <p>Our query returns 100% of the products in each page. That is why most if not all 
+                products in the page are relevant to the query.
+                That is why, we opted for a little different approach.
+                We let two people rank relevance of the top 10 documents by their page rank.
+                We wanted to determine if the top 10 documents identified by the PR algorithm
+                are suitable products to be featured on the front page for workout needs.
+                Essentially, we wanted to know if the products ranked highest by the algorithm
+                are good options for people looking to work out.</p>
+                <h4>First candidate: "Michal P." Does pilates for 2 years.</h4>
+                <img src="Example_images/Mich.png" style="width: 80vw">
+                <p></p>
+                <h4>Second candidate: "Genrih A." did bodybuilding for about 3 years. </h4>
+                <img src="Example_images/Gen.png" style="width: 80vw">
+            
 
-            <p>TODO</p>
+            <p>To improve query accuracy, we propose calculating tf-idf values for words in documents relevant to the user. These high-scoring terms can then be added to the original query.</p>
+            <p></p>
             <h1>Part 6: Used Technologies</h1>
-            <p> 
-                For the project, Python was selected as the primary programming language due to its extensive ecosystem of libraries, facilitating efficient development. To reduce computational constraints and enhance code organization and collaboration, Google Colaboratory was utilized as the development environment.
-                Web scraping was performed using the BeautifulSoup4 library. Data extracted from the MyProtein website was stored in JSON format for subsequent integration into the project website. JSON's structure and readability make it suitable for data management and retrieval.
+            <p>
+                For the project, Python was selected as the primary programming
+                language due to its extensive ecosystem of libraries,
+                facilitating efficient development. To reduce computational
+                constraints and enhance code organization and collaboration,
+                Google Colaboratory was utilized as the development environment.
+                Web scraping was performed using the BeautifulSoup4 library.
+                Data extracted from the MyProtein website was stored in JSON
+                format for subsequent integration into the project website.
+                JSON's structure and readability make it suitable for data
+                management and retrieval.
             </p>
-            <div class = icon-container>
-                <img src="Example_images/Python-programming-logo-on-transparent-background-PNG-removebg-preview.png" alt="Node_class"
-                    class="Node_class" style="min-height: 40px;  width: 5vw;">
-                <img src="Example_images/png-transparent-google-colab-logo-tech-companies-removebg-preview.png" alt="Node_class"
-                    class="Node_class" style="min-height: 40px;  width: 6vw;">
-                <img src="Example_images/1_Un8rhfHOScPqfdC3FAAU7w-removebg-preview.png" alt="Node_class"
-                    class="Node_class" style="min-height: 40px;  width: 7vw;">
-                <img src="Example_images\JSON_vector_logo.svg.png" alt="Node_class"
-                class="Node_class" style="min-height: 40px;  width: 5vw;">
+            <p></p>
+            <div class=icon-container>
+                <img
+                    src="Example_images/Python-programming-logo-on-transparent-background-PNG-removebg-preview.png"
+                    alt="Node_class"
+                    class="Node_class" style="width: 10vw;">
+                <img
+                    src="Example_images/png-transparent-google-colab-logo-tech-companies-removebg-preview.png"
+                    alt="Node_class"
+                    class="Node_class" style="width: 15vw;">
+                <img
+                    src="Example_images/1_Un8rhfHOScPqfdC3FAAU7w-removebg-preview.png"
+                    alt="Node_class"
+                    class="Node_class" style="width: 25vw;">
+                <img src="Example_images\JSON_vector_logo.svg.png"
+                    alt="Node_class"
+                    class="Node_class" style="width: 7vw; height: 7vh">
             </div>
+            <p></p>
             <h1>Part 7: Time complexity</h1>
             <h2>Theme 1: Ingredient Retrieval</h2>
             <p>
                 • Product Link Extraction: 1.5269 seconds <br>
-                • Ingredient Data Retrieval: 32.7 seconds (total for 30 products) <br>
+                • Ingredient Data Retrieval: 32.7 seconds (total for 30
+                products) <br>
             </p>
             <h2>Theme 2: Product Categorization</h2>
             <p>
                 • Product Link Extraction: 4.45 seconds <br>
-                • Product Detail Extraction: 77 seconds (total for approximately 150 products) <br>
+                • Product Detail Extraction: 77 seconds (total for approximately
+                150 products) <br>
             </p>
             <h2>Theme 3: Price Extraction</h2>
             <p>
@@ -286,15 +364,27 @@
             </p>
             <h2>Dependent On</h2>
             <p>
-                Execution time is primarily influenced by the quantity of products accessed during data retrieval. For instance, a topic with a smaller product count exhibits significantly faster processing times compared to one with a larger product count. 
-                A second critical factor influencing data extraction efficiency is the depth of the target data within the website's HTML structure. Data residing in prominent elements such as &lt;h1&gt; headings are typically readily accessible. Contrarily, data encapsulated within nested &lt;div&gt; elements pose a greater degree of complexity in the extraction process.                
+                Execution time is primarily influenced by the quantity of
+                products accessed during data retrieval. For instance, a topic
+                with a smaller product count exhibits significantly faster
+                processing times compared to one with a larger product count.
+                A second critical factor influencing data extraction efficiency
+                is the depth of the target data within the website's HTML
+                structure. Data residing in prominent elements such as
+                &lt;h1&gt; headings are typically readily accessible.
+                Contrarily, data encapsulated within nested &lt;div&gt; elements
+                pose a greater degree of complexity in the extraction process.
             </p>
             <h2>Possible Improvements</h2>
             <p>
-                Execution time can be reduced through the implementation of parallel processing techniques. This involves utilizing multiple threads concurrently on multiple processors or employing more computationally powerful hardware.
-                Or identifying the optimal data extraction strategy to minimize the volume of processed elements.
+                Execution time can be reduced through the implementation of
+                parallel processing techniques. This involves utilizing multiple
+                threads concurrently on multiple processors or employing more
+                computationally powerful hardware.
+                Or identifying the optimal data extraction strategy to minimize
+                the volume of processed elements.
             </p>
-            
+
             <script src="MP_Retrieval.js"></script>
             <script src="slider.js"></script>
 
